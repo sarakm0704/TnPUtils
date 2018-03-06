@@ -22,5 +22,6 @@ void plot(){
   leg->SetTextSize(0.04);
   leg->SetLineColor(0);
   leg->Draw();
- 
+
+  c->Print("Eff_pt.pdf"); 
 }
