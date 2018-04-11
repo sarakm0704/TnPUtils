@@ -242,6 +242,8 @@ Template = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     Efficiencies = cms.PSet(), # will be filled later
 )
 
+from input_cff import * 
+
 if sample == "data_2017":
     process.TnP_MuonID = Template.clone(
         InputFileNames = cms.vstring(
@@ -263,6 +265,19 @@ if sample == "data_2017":
         Efficiencies = cms.PSet(),
         )
 
+    if iteration == "nJet0":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet0
+    elif iteration == "nJet1":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet1
+    elif iteration == "nJet2":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet2
+    elif iteration == "nJet3":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet3
+    elif iteration == "nJet4more":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet4more
+    else:
+      print "running over default sample"
+
 if sample == "mc_2017":
     process.TnP_MuonID = Template.clone(
         InputFileNames = cms.vstring(
@@ -274,6 +289,19 @@ if sample == "mc_2017":
         OutputFileName = cms.string("TnP_MuonID_%s.root" % scenario),
         Efficiencies = cms.PSet(),
         )
+
+    if iteration == "nJet0":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet0
+    elif iteration == "nJet1":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet1
+    elif iteration == "nJet2":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet2
+    elif iteration == "nJet3":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet3
+    elif iteration == "nJet4more":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet4more 
+    else:
+      print "running over default sample"
 
 if scenario == "mc_all":
     print "Including the weight for MC"
