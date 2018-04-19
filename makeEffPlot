@@ -4,6 +4,7 @@ import argparse
 import sys
 import os
 import json
+import ROOT
 
 """
 Setup argument parser
@@ -145,6 +146,30 @@ for keyPlot in data:
     latex.SetTextAlign(31);
     latex.DrawLatex(0.90, 0.91, data[keyPlot]['plot']['caption'])
     canvas.Update()
+
+    #print out efficiency and scale factor
+    Range = []
+    Eff = []
+    SF = [] 
+    for iGraph in range(len(inputGraphs)):
+        tmp = []
+        nbins = inputGraphs[iGraph].GetN()
+        for i in range(nbins):
+          xlow = inputGraphs[iGraph].GetErrorXlow(i)
+          xhigh = inputGraphs[iGraph].GetErrorXhigh(i)
+          p = ( ROOT.Double(), ROOT.Double() )
+          inputGraphs[iGraph].GetPoint(i, p[0], p[1])
+          tmp.append( p[1] )
+          ran = str(p[0]-xlow) + " < " + plotX[2] + " < " + str(p[0]+xhigh)
+          if iGraph == 0:
+            Range.append(ran)
+        Eff.append(tmp)
+    header = "\tVariable" + "\t\t" + "Data" + "\t" + "MC" + "\t" + "Scale"
+    print header
+    for i in range(len(Eff[0])):
+      scale = Eff[1][i]/Eff[0][i]
+      SF.append(scale)
+      print Range[i], " : ", "\t", format(Eff[1][i], '.4f') , "\t", format(Eff[0][i], '.4f'), "\t", format(SF[i], '.4f')
 
     # Save plot
     outputDirectory = data[keyPlot]['output']['directory']
