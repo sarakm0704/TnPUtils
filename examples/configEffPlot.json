@@ -8,7 +8,7 @@
             {
                 "label"             : "Data",
                 "legendEntry"       : "Data",
-                "filename"          : "Efficiencytest/DATA_data_2017/TnP_MC_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_pt.root",
+                "filename"          : "EfficiencyTEST/DATA_data_2017/TnP_MC_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_pt.root",
                 "directory"         : "tpTree/LooseIso4_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_pt/",
                 "binnedVariable"    : "pt"
             },
@@ -16,24 +16,24 @@
             {
                 "label"             : "MC",
                 "legendEntry"       : "MC",
-                "filename"          : "Efficiencytest/MC_mc_2017/TnP_MC_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_pt.root",
+                "filename"          : "EfficiencyTEST/MC_mc_2017/TnP_MC_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_pt.root",
                 "directory"         : "tpTree/LooseIso4_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_pt/",
                 "binnedVariable"    : "pt"
             }
         },
         "plot"      :
         {
-            "x"                 : [0.0, 2.4, "Muon abseta"],
+            "x"                 : [0.0, 200.0, "Muon pt"],
             "y"                 : [0.65, 1.15, "Efficiency"],
-            "legendTitle"       : "Mu50 HLT, p_{T} > 55 GeV",
-            "caption"           : "7.6 fb^{-1} (13 TeV, 2016)",
+            "legendTitle"       : "Muon p_{T} > 20 GeV",
+            "caption"           : "Work In Progress (13 TeV, 2017)",
             "logo"              : ["CMS", "Preliminary"],
             "colorMap"          : [1, 4, 2, 3, 5, 6, 7, 8, 9],
             "markerMap"         : [20, 21, 22, 23, 24, 25, 26]
         },
         "output"    :
         {
-            "directory"         : "Efficiencytest/plot",
+            "directory"         : "EfficiencyTEST/plot",
             "filenamePlot"     : "plot",
             "fileType"          : ["png", "pdf"]
         }
