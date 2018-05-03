@@ -273,8 +273,12 @@ if sample == "data_2017":
       process.TnP_MuonID.InputFileNames = data_2017_nJet2
     elif iteration == "nJet3":
       process.TnP_MuonID.InputFileNames = data_2017_nJet3
+    elif iteration == "nJet4":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet4
     elif iteration == "nJet4more":
       process.TnP_MuonID.InputFileNames = data_2017_nJet4more
+    elif iteration == "nJet5more":
+      process.TnP_MuonID.InputFileNames = data_2017_nJet5more
     else:
       print "running over default sample"
 
@@ -298,8 +302,12 @@ if sample == "mc_2017":
       process.TnP_MuonID.InputFileNames = mc_2017_nJet2
     elif iteration == "nJet3":
       process.TnP_MuonID.InputFileNames = mc_2017_nJet3
+    elif iteration == "nJet4":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet4
     elif iteration == "nJet4more":
       process.TnP_MuonID.InputFileNames = mc_2017_nJet4more 
+    elif iteration == "nJet5more":
+      process.TnP_MuonID.InputFileNames = mc_2017_nJet5more
     else:
       print "running over default sample"
 
