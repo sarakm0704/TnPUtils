@@ -5,6 +5,7 @@ import sys
 import os
 import json
 import ROOT
+import math
 
 """
 Setup argument parser
@@ -61,10 +62,13 @@ for keyPlot in data:
         inputDir = inputFile.GetDirectory(inputPaths[iGraph])
         inputName = None
         for keys in inputDir.GetListOfKeys():
+            print keys
+            print inputBinnedVariables[iGraph]
             if keys.GetName()[0:len(inputBinnedVariables[iGraph])]==inputBinnedVariables[iGraph]:
                 inputName = keys.GetName()
         if args.verbosity==1:
             print('Load plot \'{}\': {}'.format(inputLabels[iGraph], inputName))
+        print inputName
         inputGraphs.append(inputDir.Get(inputName).GetPrimitive('hxy_fit_eff'))
 
     # Set line color and marker style for each graph using given maps from config
@@ -150,26 +154,42 @@ for keyPlot in data:
     #print out efficiency and scale factor
     Range = []
     Eff = []
+    EffUp = []
+    EffDw = []
     SF = [] 
+    SFUp = [] 
+    SFDw = [] 
     for iGraph in range(len(inputGraphs)):
         tmp = []
+        tmpUp = []
+        tmpDw = []
         nbins = inputGraphs[iGraph].GetN()
         for i in range(nbins):
           xlow = inputGraphs[iGraph].GetErrorXlow(i)
           xhigh = inputGraphs[iGraph].GetErrorXhigh(i)
+          ylow = inputGraphs[iGraph].GetErrorYlow(i)
+          yhigh = inputGraphs[iGraph].GetErrorYhigh(i)
           p = ( ROOT.Double(), ROOT.Double() )
           inputGraphs[iGraph].GetPoint(i, p[0], p[1])
           tmp.append( p[1] )
+          tmpUp.append( yhigh )
+          tmpDw.append( ylow )
           ran = str(p[0]-xlow) + " < " + plotX[2] + " < " + str(p[0]+xhigh)
           if iGraph == 0:
             Range.append(ran)
         Eff.append(tmp)
+        EffUp.append(tmpUp)
+        EffDw.append(tmpDw)
     header = "\tVariable" + "\t\t" + "Data" + "\t" + "MC" + "\t" + "Scale"
     print header
     for i in range(len(Eff[0])):
       scale = Eff[1][i]/Eff[0][i]
+      scaleUp = math.sqrt( math.pow( EffUp[1][i]/Eff[1][i] ,2) + math.pow( EffUp[0][i]/Eff[0][i] ,2) )*scale   
+      scaleDw = math.sqrt( math.pow( EffDw[1][i]/Eff[1][i] ,2) + math.pow( EffDw[0][i]/Eff[0][i] ,2) )*scale   
       SF.append(scale)
-      print Range[i], " : ", "\t", format(Eff[1][i], '.4f') , "\t", format(Eff[0][i], '.4f'), "\t", format(SF[i], '.4f')
+      SFUp.append(scaleUp)
+      SFDw.append(scaleDw)
+      print Range[i], " : ", "\t", format(Eff[1][i], '.4f') , "\t", format(Eff[0][i], '.4f'), "\t", format(SF[i], '.4f'), " ( +" , format(SFUp[i], '.4f'), " -", format(SFDw[i], '.4f') , " )"  
 
     # Save plot
     outputDirectory = data[keyPlot]['output']['directory']
