@@ -1,0 +1,34 @@
+[?1034hProcessing plot config: example1
+Config comment: Efficiency plots
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+<ROOT.TKey object ("eta_PLOT_Tight2012_pass") at 0x395f940>
+eta
+Load plot 'MC': eta_PLOT_Tight2012_pass
+eta_PLOT_Tight2012_pass
+<ROOT.TKey object ("eta_PLOT_Tight2012_pass") at 0x371ba40>
+eta
+Load plot 'Data': eta_PLOT_Tight2012_pass
+eta_PLOT_Tight2012_pass
+Using colormap: [1, 4, 2, 3, 5, 6, 7, 8, 9]
+Using markermap: [20, 21, 22, 23, 24, 25, 26]
+	Variable		Data	MC	Scale
+-2.4 < Muon #eta < -2.1  :  	0.9732 	0.9743 	0.9989  ( + 0.0011  - 0.0011  )
+-2.1 < Muon #eta < -1.6  :  	0.9674 	0.9660 	1.0014  ( + 0.0008  - 0.0008  )
+-1.6 < Muon #eta < -1.2  :  	0.9539 	0.9556 	0.9982  ( + 0.0009  - 0.0009  )
+-1.2 < Muon #eta < -0.9  :  	0.9466 	0.9501 	0.9964  ( + 0.0011  - 0.0011  )
+-0.9 < Muon #eta < -0.3  :  	0.9513 	0.9499 	1.0015  ( + 0.0007  - 0.0007  )
+-0.3 < Muon #eta < -0.2  :  	0.9490 	0.9445 	1.0048  ( + 0.0019  - 0.0019  )
+-0.2 < Muon #eta < 0.2  :  	0.9501 	0.9461 	1.0043  ( + 0.0009  - 0.0009  )
+0.2 < Muon #eta < 0.3  :  	0.9495 	0.9443 	1.0054  ( + 0.0019  - 0.0019  )
+0.3 < Muon #eta < 0.9  :  	0.9525 	0.9485 	1.0042  ( + 0.0007  - 0.0007  )
+0.9 < Muon #eta < 1.2  :  	0.9448 	0.9487 	0.9959  ( + 0.0011  - 0.0011  )
+1.2 < Muon #eta < 1.6  :  	0.9495 	0.9543 	0.9949  ( + 0.0010  - 0.0010  )
+1.6 < Muon #eta < 2.1  :  	0.9661 	0.9670 	0.9991  ( + 0.0008  - 0.0008  )
+2.1 < Muon #eta < 2.4  :  	0.9710 	0.9724 	0.9986  ( + 0.0011  - 0.0012  )
+Output directory: EfficiencynJet1/plot
+Output directories for fit canvases: [u'MC', u'Data']
+

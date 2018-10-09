@@ -1,0 +1,41 @@
+{
+    "example1"   :
+    {
+        "comment"   : "Efficiency plots",
+        "inputs"    :
+        {
+            "input_1"   :
+            {
+                "label"             : "Data",
+                "legendEntry"       : "Data",
+                "filename"          : "EfficiencynJet2/DATA_data_2017/TnP_MC_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_eta.root",
+                "directory"         : "tpTree/LooseIso4_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_eta/",
+                "binnedVariable"    : "eta"
+            },
+            "input_2"   :
+            {
+                "label"             : "MC",
+                "legendEntry"       : "MC",
+                "filename"          : "EfficiencynJet2/MC_mc_2017/TnP_MC_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_eta.root",
+                "directory"         : "tpTree/LooseIso4_NUM_LooseRelIso_DEN_TightIDandIPCut_PAR_eta/",
+                "binnedVariable"    : "eta"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [-2.4, 2.4, "Muon #eta"],
+            "y"                 : [0.65, 1.15, "Efficiency"],
+            "legendTitle"       : "Muon p_{T} > 20 GeV",
+            "caption"           : "13 TeV, 2017",
+            "logo"              : ["CMS", ""],
+            "colorMap"          : [1, 4, 2, 3, 5, 6, 7, 8, 9],
+            "markerMap"         : [20, 21, 22, 23, 24, 25, 26]
+        },
+        "output"    :
+        {
+            "directory"         : "EfficiencynJet2/plot",
+            "filenamePlot"     : "plot_eta",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}
